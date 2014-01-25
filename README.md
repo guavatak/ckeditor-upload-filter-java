@@ -28,27 +28,32 @@ CKEditor image upload module for Java.
 filter-mapping 은 다른 filter-mapping 들 보다 가장 위에 위치하도록 합니다.
 
 ####2. config.js 에 다음 내용을 추가합니다.
-ckeditor 설치 디렉토리 밑에 config.js 파일을 열고 다음 내용을 추가합니다.
 
-`ckeditor/config.js`
-```javascript
-config.filebrowserUploadUrl = '/ckupload';
-```
-당신의 web application 의 'context root' 를 고려해서 추가하시기 바랍니다.
+* TYPE 1
 
-만약 CKEditor for jQuery 를 사용한다면 'context root' 를 고려하여 다음과 같이 해도 됩니다.
+> ckeditor 설치 디렉토리 밑에 config.js 파일을 열고 다음 내용을 추가합니다.
+> 
+> `ckeditor/config.js`
+> ```javascript
+> config.filebrowserUploadUrl = '/ckupload';
+> ```
+> 당신의 web application 의 'context root' 를 고려해서 추가하시기 바랍니다.
 
-`yourConfig.jsp`
-```jsp
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+* TYPE 2
 
-<script type="text/javascript">
-	$(document).ready(function(){
-    $('.jquery_ckeditor')
-    .ckeditor( function() { /* callback code */ }, { filebrowserUploadUrl:'${ctx}/ckupload' } );
-	});
-</script>
-```
+> 만약 CKEditor for jQuery 를 사용한다면 'context root' 를 고려하여 다음과 같이 해도 됩니다.
+> 
+> `yourConfig.jsp`
+> ```jsp
+> <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+> 
+> <script type="text/javascript">
+> 	$(document).ready(function(){
+>     $('.jquery_ckeditor')
+>     .ckeditor( function() { /* callback code */ }, { filebrowserUploadUrl:'${ctx}/ckupload' } );
+> 	});
+> </script>
+> ```
 
 ####3. ck.properties 파일을 만들고 다음 내용을 추가합니다.
 
